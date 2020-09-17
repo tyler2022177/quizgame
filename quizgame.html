@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>Quiz Game Attempt</title>
+	
+	<script>
+			let answers = ['yes', 'sure', 'uh huh', 'no'];
+			let questions = [{
+								qText: "yes?",
+								aList: ['yes', 'sure', 'uh huh', 'no'],
+								aCorrect: 'no'
+							},
+							{
+								qText: "Does Minecraft better fourtnight gayme?",
+								aList: ['yes', 'sure', 'uh huh', 'obviously you re re head'],
+								aCorrect: 'obviously you re re head'
+							},
+							{
+								qText: "roblox?",
+								aList: ['yes', 'sure', 'uh huh', 'very'],
+								aCorrect: 'very'
+							}
+							]
+							
+			function createQuestion() {
+				document.getElementById("answersBox").innerHTML = "";
+				let RNGesus = Math.Floor(Math.random() * 3);
+				document.getElementById("questionBox").innerHTML = questions[RNGesus];
+				for (let i = 0; i < answers.length; i++) {
+					document.getElementById("answersBox").innerHTML += 
+						`<input type="radio" id="answer${i+1}" name="selection" value="${Questions[RNGesus].aList [i]}"> <label for="${Questions[RNGesus].aList [i]}">${answers[i]}</label>`
+				}
+			}
+			
+			function checkAnswer() {
+				if (document.getElementById("answer4").checked) {
+					document.getElementById("responseBox").innerHTML = "ur so smart"
+				} else {
+					document.getElementById("responseBox").innerHTML = "ur big dumm"
+				}
+			}
+	
+		</script>
+	
+	</head>
+	<body onload="createQuestion()">
+		<div id="questionBox">
+		Does fourtnight are good?
+		</div>
+		<div id="answersBox">
+			<input type="radio" id="answer1" name="selection" value="yes">
+			<label for="yes">Yes</label>
+			<input type="radio" id="answer2" name="selection" value="uh huh">
+			<label for="uh huh">Yes</label>
+			<input type="radio" id="answer3" name="selection" value="sure">
+			<label for="sure">Yes</label>
+			<input type="radio" id="answer4" name="selection" value="no">
+			<label for="no">No</label>
+		</div>
+		<button id="submit" onclick="checkAnswer()">Loading...</button>
+		<div id="responseBox">
+		</div>
+	</body>
+</html>
